@@ -1,19 +1,20 @@
 import {Col,Row} from 'reactstrap';
 import ProductCard from './ProductCard';
-import { PRODUCTS } from '../../app/shared/PRODUCTS';
+import { selectAllProducts } from './ProductSlice';
 
 const ProductList = () =>{
-    return(
-        <Row className='ms-auto'>
-            {PRODUCTS.map((product) => {
-                        return (
-                            <Col md='5' className='m-4' key={product.id}>
-                                <ProductCard product={product} />
-                            </Col>
-                        );
-                    })}
-        </Row>
+    const products = selectAllProducts();
+    return (     
+        <Row className="ms-auto">
+            {products.map((product) => {
+                return (
+                    <Col md="5" className="m-4" key={product.id} >
+                        <ProductCard product={product} />
+                    </Col>
+                );
+            })}
+        </Row>  
     );
+};
 
-}
 export default ProductList;

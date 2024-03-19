@@ -1,18 +1,31 @@
 import { Card, CardImg,CardImgOverlay,CardTitle} from "reactstrap";
+import ProductDetails from "./ProductDetails";
 
 
-const ProductCard = (props) =>{
-  
+
+
+const ProductCard = ({product}) =>{
+  const {image, name} = product;
     return (
         <Card>
               <CardImg 
-                width='50%'
-                src={props.product.image}
-                alt={props.product.name}
+                width='100%'
+                src={image}
+                alt={name}
             /> 
                 <CardImgOverlay>
-                <CardTitle>{props.product.name}</CardTitle>
+                <CardTitle>{name}</CardTitle>
                 </CardImgOverlay>
+                <button
+  name="Add to cart"
+  className="btn btn-success"
+  onClick={ProductDetails}
+  href ="#"
+
+  
+>
+ Add To Cart
+</button>
         </Card>
     );
 

@@ -1,52 +1,71 @@
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
+import LayoLogo from '../app/assets/images/layo.png'
 import {
-  Navbar,
-  NavbarBrand,
-  Collapse,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from 'reactstrap'
-import { NavLink } from 'react-router-dom';
-import LayoLogo from '../app/assets/images/layo.png';
-//import UserLoginForm from '../features/user/UserLoginForm';
+    Navbar,
+    NavbarBrand,
+    Collapse,
+    NavbarToggler,
+    Nav,
+    NavItem,
+    NavLink
+
+  } from 'reactstrap'
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Navbar dark color='primary' sticky='top' expand='md'>
-      <NavbarBrand className='ms-5' href='/'>
-          <img src={LayoLogo} alt='Layo logo' className='float-start' />
-          <h1 className='mt-1'>Layo</h1>
-      </NavbarBrand>
+    <Navbar dark color='primary' sticky='top' expand='md' className="navbar navbar-expand-lg navbar-light bg-light">
+       <NavbarBrand className='ms-4' href='/'>
+          <img src={LayoLogo} alt='Layo Logo' className='float-start' />
+          <h1>Welcome to Our Store</h1>
+          <p class="centered" className='ms-auto'>Explore our amazing products!</p>
+      </NavbarBrand>  
       <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
           <Collapse isOpen={menuOpen} navbar>
-            <Nav className='ms-auto' navbar>
-              <NavItem>
-                <NavLink className='nav-link' to='/'>
-                  <i className='fa fa-home fa-lg' /> Home
-                  </NavLink>
-                </NavItem>
-              <NavItem>
-              <NavLink className='nav-link' to='/directory'>
-                  <i className='fa fa-list fa-lg' /> Directory
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className='nav-link' to='/about'>
-                  <i className='fa fa-info fa-lg' /> About
-               </NavLink>
-              </NavItem>
+          <Nav className='ms-auto' navbar>
+
             <NavItem>
-              < NavLink className='nav-link' to='/contact'>
-                  <i className='fa fa-address-card fa-lg' /> Contact
-                </NavLink>
-              </NavItem>
-         </Nav>
-        {/* //<UserLoginForm/> */}
-      </Collapse>
-    </Navbar>
+                        <NavLink className='nav-link' to='/'>
+                            <i className='fa fa-home fa-lg' /> Home
+                        </NavLink>
+            </NavItem>
+          
+          <NavItem>
+                        <NavLink className='nav-link' to='/'>
+                            <i className='fa fa-home fa-lg' /> Features
+                        </NavLink>
+          </NavItem>
+          <NavItem>
+                        <NavLink className='nav-link' to='/'>
+                            <i className='fa fa-home fa-lg' /> Pricing
+                        </NavLink>
+          </NavItem >
+          <NavItem>
+          <div className="dropdown">
+                            <NavLink className ="dropbtn">Other Products</NavLink>
+                            <div class="dropdown-content">
+                              <a href="#">Spiritual Oils</a>
+                              <a href="#">Spiritual Soaps</a>
+                              <a href="#">More Jewellery</a>
+              </div>               
+              </div>
+          </NavItem>
+      <NavItem>
+        <div class="navbar-cart">
+            <a href="#" class="cart-icon">🛒</a>
+          </div>
+    </NavItem>
+    <NavItem>
+              <div class="search_bar">
+              <input type="text" name="search" value="Search.." className="fa-search" />
+              </div>
+           </NavItem>
+        </Nav>
+    </Collapse>   
+</Navbar>
+
   );
 };
 
